@@ -1,5 +1,16 @@
 import { createApp } from 'vue'
-import './style.css'
+//@ts-ignore
+import {createPinia} from "pinia";
+//@ts-ignore
 import App from './App.vue'
+import {router} from "./router";
+import './styles/tailwindcss.css';
+import './styles/index.less'
 
-createApp(App).mount('#app')
+const  pinia = createPinia()
+const app=createApp(App)
+
+app.use(router)
+// @ts-ignore
+app.use(pinia)
+app.mount('#app')
